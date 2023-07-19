@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './HomePage.css';
+import animalGif from '../../assets/images/animalgif.gif';
 
-type Props = {}
-
-const HomePage = (props : Props) => {
+const HomePage: React.FC = () => {
     return (
-        <div>HomePage</div>
-    )
-}
+        <div className="homepage">
+            <h1>Carregando</h1>
+            <img src={animalGif} alt="GIF ou Imagem Animada" />
+        </div>
+    );
+};
 
 export default HomePage;
