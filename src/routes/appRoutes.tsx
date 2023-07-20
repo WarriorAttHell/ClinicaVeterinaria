@@ -9,20 +9,24 @@ import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import Perfil from "../pages/changelog/Perfil";
 import CadastroClinica from "../pages/dasboard/CadastroClinica";
+import ListaClinicas from "../pages/lists/ListaClinicas";
+import ListaAnimais from "../pages/lists/ListaAnimais";
+import ListPageLayout from "../pages/lists/ListPageLayout";
+import ListaTiposAnimais from "../pages/lists/ListaTiposAnimais";
 
 const appRoutes: RouteType[] = [
     {
         index: true,
-        elemnts: <HomePage/>,
+        elemnts: <HomePage />,
         state: "home"
     },
     {
         path: "/dashboard",
-        elemnts: <DashboardPageLayout/>,
+        elemnts: <DashboardPageLayout />,
         state: "dashboard",
         SidebarProps: {
             displaytext: "Cadastro",
-            icon: <DashboardOutlinedIcon/>
+            icon: <DashboardOutlinedIcon />
         },
         child: [
             {
@@ -31,11 +35,11 @@ const appRoutes: RouteType[] = [
                 state: "dashboard.index"
             },
             {
-                path: "/dashboard/animal",
-                elemnts: <CadastroAnimal />,
-                state: "dashboard.cadastroanimal",
+                path: "/dashboard/cadastrar-tipo-animal",
+                elemnts: <TipoAnimal />,
+                state: "dashboard.tipoanimal",
                 SidebarProps: {
-                    displaytext: "Animal"
+                    displaytext: "Tipo Animal"
                 }
             },
             {
@@ -47,11 +51,11 @@ const appRoutes: RouteType[] = [
                 }
             },
             {
-                path: "/dashboard/tipoanimal",
-                elemnts: <TipoAnimal />,
-                state: "dashboard.tipoanimal",
+                path: "/dashboard/animal",
+                elemnts: <CadastroAnimal />,
+                state: "dashboard.cadastroanimal",
                 SidebarProps: {
-                    displaytext: "Tipo Animal"
+                    displaytext: "Animal"
                 }
             },
             {
@@ -61,20 +65,56 @@ const appRoutes: RouteType[] = [
                 SidebarProps: {
                     displaytext: "Clinica"
                 }
+            },
+            {
+                path: "/dashboard/perfil",
+                elemnts: <Perfil />,
+                state: "dashboard.perfil",
+                SidebarProps: {
+                    displaytext: "Perfil"
+                }
             }
         ]
     },
     {
-        path: "/changelog",
-        elemnts: <Perfil />,
-        state: "changelog",
+        path: "/list",
+        elemnts: <ListPageLayout />,
+        state: "lists",
         SidebarProps: {
-            displaytext: "Perfil",
+            displaytext: "Listagens",
             icon: <ListOutlinedIcon />
-        }
+        },
+        child: [
+            {
+                path: "/list/listclinica",
+                elemnts: <ListaClinicas />,
+                state: "lists.listaclinica",
+                SidebarProps: {
+                    displaytext: "Listagem de Clinicas"
+                }
+            },
+            {
+                path: "/list/listaanimal",
+                elemnts: <ListaAnimais />,
+                state: "lists.listaanimal",
+                SidebarProps: {
+                displaytext: "Listagem de Animais",
+                }
+            },
+            {
+                path: "/list/listtipoanimal",
+                elemnts: <ListaTiposAnimais />,
+                state: "lists.listatipoanimal",
+                SidebarProps: {
+                displaytext: "Listagem dos Tipos de Animais",
+                }
+            }
+        ]
+
     }
-    
-    
+
+
+
 ];
 
 export default appRoutes

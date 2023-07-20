@@ -1,61 +1,53 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Importe o axios para fazer a chamada HTTP
 
 const CadastroAnimal = () => {
-    const [nomeAnimal, setNomeAnimal] = useState('');
-    const [raca, setRaca] = useState('');
-    const [dataNascimento, setDataNascimento] = useState('');
+    const [nome_animal, setNomeAnimal] = useState('');
+    const [raca_animal, setRacaAnimal] = useState('');
+    const [data_nascimento, setDataNascimento] = useState('');
     const [porte, setPorte] = useState('');
     const [cor, setCor] = useState('');
-    const [responsavel, setResponsavel] = useState('');
+    const [id_responsavel, setIdResponsavel] = useState('');
     const [status, setStatus] = useState('');
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
         // Lógica para manipular os dados do formulário
         const formData = {
-            nomeAnimal,
-            raca,
-            dataNascimento,
+            nome_animal,
+            raca_animal,
+            data_nascimento,
             porte,
             cor,
-            responsavel,
-            status
+            id_responsavel,
+            status,
         };
 
         console.log('Dados do formulário:', formData);
 
-        // Aqui você pode realizar a lógica para enviar os dados do formulário
-        // Por exemplo, você pode fazer uma requisição HTTP para enviar os dados para um servidor
+        try {
+            // Aqui você pode realizar a lógica para enviar os dados do formulário
+            // Por exemplo, fazer a chamada HTTP para enviar os dados para a API
+            const response = await axios.post(
+                'https://veterinaria.offcurve.com.br/api/v1/animal/add_animal/',
+                formData
+            );
+            console.log('Resposta do servidor:', response.data);
 
-        // Exemplo de envio assíncrono usando fetch:
-        fetch('https://exemplo.com/api/clinica', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-            .then(response => response.json())
-            .then(data => {
-                // Aqui você pode tratar a resposta do servidor após o envio do formulário
-                console.log('Resposta do servidor:', data);
-
-                // Limpar os campos do formulário após o envio bem-sucedido
-                setNomeAnimal('');
-                setRaca('');
-                setDataNascimento('');
-                setPorte('');
-                setCor('');
-                setResponsavel('');
-                setStatus('');
-            })
-            .catch(error => {
-                // Aqui você pode tratar o erro caso ocorra algum problema durante o envio do formulário
-                console.error('Erro ao enviar formulário:', error);
-            });
+            // Limpar os campos do formulário após o envio bem-sucedido
+            setNomeAnimal('');
+            setRacaAnimal('');
+            setDataNascimento('');
+            setPorte('');
+            setCor('');
+            setIdResponsavel('');
+            setStatus('');
+        } catch (error) {
+            // Tratar o erro caso ocorra algum problema durante o envio do formulário
+            console.error('Erro ao enviar formulário:', error);
+        }
     };
-
     return (
         <div className="container">
             <h1>Cadastro Animal</h1>
@@ -68,7 +60,7 @@ const CadastroAnimal = () => {
                         className="form-control"
                         id="nomeAnimal"
                         placeholder="Digite o nome do animal"
-                        value={nomeAnimal}
+                        value={nome_animal}
                         onChange={(e) => setNomeAnimal(e.target.value)}
                     />
                 </div>
@@ -79,8 +71,8 @@ const CadastroAnimal = () => {
                         className="form-control"
                         id="raca"
                         placeholder="Digite a raça do animal"
-                        value={raca}
-                        onChange={(e) => setRaca(e.target.value)}
+                        value={raca_animal}
+                        onChange={(e) => setRacaAnimal(e.target.value)}
                     />
                 </div>
                 <div className="form-group">
@@ -89,7 +81,7 @@ const CadastroAnimal = () => {
                         type="date"
                         className="form-control"
                         id="dataNascimento"
-                        value={dataNascimento}
+                        value={data_nascimento}
                         onChange={(e) => setDataNascimento(e.target.value)}
                     />
                 </div>
@@ -124,8 +116,8 @@ const CadastroAnimal = () => {
                         className="form-control"
                         id="responsavel"
                         placeholder="Digite o nome do responsável"
-                        value={responsavel}
-                        onChange={(e) => setResponsavel(e.target.value)}
+                        value={id_responsavel}
+                        onChange={(e) => setIdResponsavel(e.target.value)}
                     />
                 </div>
                 <div className="form-group">

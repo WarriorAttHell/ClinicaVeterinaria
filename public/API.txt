@@ -1,0 +1,155 @@
+http://veterinaria.offcurve.com.br/api/v1/clinica/listar_clinicas/
+https://veterinaria.offcurve.com.br/api/v1/clinica/detalhar_clinica/1/
+
+Alterei aq pq estava errado 
+http://veterinaria.offcurve.com.br/api/v1/clinica/add_clinica/
+http://veterinaria.offcurve.com.br/api/v1/clinica/add_clinica/
+http://veterinaria.offcurve.com.br/api/v1/clinica/deletar_clinica/1/
+
+API Tipo de Animal
+URLS:
+https://veterinaria.offcurve.com.br/api/v1/tipo_animal/listar_tipo_animais/
+https://veterinaria.offcurve.com.br/api/v1/tipo_animal/detalhar_tipo_animal/3/
+https://veterinaria.offcurve.com.br/api/v1/tipo_animal/add_tipo_animal/
+https://veterinaria.offcurve.com.br/api/v1/tipo_animal/alterar_tipo_animal/3/
+https://veterinaria.offcurve.com.br/api/v1/tipo_animal/deletar_tipo_animal/3/
+
+
+payload esperado para a rota de cadastro:
+{
+    "nome_tipo_animal": "Ave",
+    "status": "A"
+}
+Vantuir — Hoje às 00:14
+API Raça de Animal
+URLS:
+https://veterinaria.offcurve.com.br/api/v1/raca_animal/listar_raca_animais/
+https://veterinaria.offcurve.com.br/api/v1/raca_animal/detalhar_raca_animal/3/
+https://veterinaria.offcurve.com.br/api/v1/raca_animal/add_raca_animal/
+https://veterinaria.offcurve.com.br/api/v1/raca_animal/alterar_raca_animal/3/
+https://veterinaria.offcurve.com.br/api/v1/raca_animal/deletar_raca_animal/3/
+
+payload esperado para a rota de cadastro:
+{
+    "nome_raca": "Tiriva",
+    "tipo_animal": 3,
+    "status": "A"
+}
+API Animal
+URLS:
+https://veterinaria.offcurve.com.br/api/v1/animal/listar_animais/
+https://veterinaria.offcurve.com.br/api/v1/animal/detalhar_animal/3/
+https://veterinaria.offcurve.com.br/api/v1/animal/add_animal/
+https://veterinaria.offcurve.com.br/api/v1/animal/alterar_animal/3/
+https://veterinaria.offcurve.com.br/api/v1/animal/deletar_animal/3/
+
+payload esperado para a rota de cadastro:
+{
+    "id_clinica": 1,
+    "nome_animal": "Rico",
+    "tipo_animal": 3,
+    "raca_animal": 3,
+    "data_nascimento": "2023-01-16",
+    "porte": "P",
+    "cor": "Verde",
+    "id_responsavel": 1,
+    "status": "A"
+}
+Vantuir — Hoje às 00:34
+API Vacina
+URLS:
+https://veterinaria.offcurve.com.br/api/v1/vacina/listar_vacinas/
+https://veterinaria.offcurve.com.br/api/v1/vacina/detalhar_vacina/3/
+https://veterinaria.offcurve.com.br/api/v1/vacina/add_vacina/
+https://veterinaria.offcurve.com.br/api/v1/vacina/alterar_vacina/3/
+https://veterinaria.offcurve.com.br/api/v1/vacina/deletar_vacina/3/
+
+payload esperado para a rota de cadastro:
+{
+    "id_clinica": 2,
+    "nome_vacina": "Anti Sarna",
+    "descricao": "Para cachorros",
+    "status": "A"
+}
+API Forma de Pagamento
+https://veterinaria.offcurve.com.br/api/v1/forma_pagamento/listar_formas_pagamento/
+https://veterinaria.offcurve.com.br/api/v1/forma_pagamento/detalhar_forma_pagamento/3/
+https://veterinaria.offcurve.com.br/api/v1/forma_pagamento/add_forma_pagamento/
+https://veterinaria.offcurve.com.br/api/v1/forma_pagamento/alterar_forma_pagamento/3/
+https://veterinaria.offcurve.com.br/api/v1/forma_pagamento/deletar_forma_pagamento/3/
+
+payload esperado para a rota de cadastro:
+
+{
+    "nome_forma_pagamento": "Boleto",
+    "logo": "/boleto-icon.png",
+    "dados_integracao": "AA",
+    "id_clinica": 2,
+    "status": "A"
+}
+Vantuir — Hoje às 00:51
+API Atendimento
+URLS:
+https://veterinaria.offcurve.com.br/api/v1/atendimento/listar_atendimentos/
+https://veterinaria.offcurve.com.br/api/v1/atendimento/detalhar_atendimento/1/ 
+https://veterinaria.offcurve.com.br/api/v1/atendimento/add_atendimento/
+https://veterinaria.offcurve.com.br/api/v1/atendimento/alterar_atendimento/1/
+https://veterinaria.offcurve.com.br/api/v1/atendimento/deletar_atendimento/1/
+
+payload esperado para a rota de cadastro:
+{
+    "id_clinica": 2,
+    "id_cliente": 1,
+    "id_animal": 2,
+    "id_medico": 1,
+    "categoria_atendimento": "1",
+    "titulo_atendimento": "Banho e Tosa - Toby",
+    "descricao_atendimento": "asdbkjashdbkjasbdkas",
+    "urgencia": "1",
+    "status_atendimento": "1",
+    "status_pagamento": "1",
+    "vacinas": [
+        1
+    ],
+    "data_inicio": "1970-01-01T00:00:00-03:00",
+    "data_encerramento": "1970-01-01T00:00:00-03:00",
+    "data_pagamento": "1970-01-01T00:00:00-03:00"
+}
+Para os campos de enumeração do Atendimento, segue o De para
+    CATEGORIA_CHOICES = (
+        ('1', 'PetShop'),
+        ('2', 'Atendimento Médico'),
+        ('3', 'Intervenção Cirúrgica'),
+    )
+    URGENCIA_CHOICES = (
+        ('1', 'Baixa'),
+        ('2', 'Média'),
+        ('3', 'Alta'),
+        ('4', 'Urgente'),
+    )
+    STATUS_ATENDIMENTO_CHOICES = (
+        ('1', 'Aguardando Atendimento'),
+        ('2', 'Em Atendimento'),
+        ('3', 'Em Espera'),
+        ('4', 'Finalizado'),
+    )
+    STATUS_PAGAMENTO_CHOICES = (
+        ('1', 'Aguardando Pagamento'),
+        ('2', 'Pagamento Realizado'),
+    )
+Vantuir — Hoje às 01:01
+API Pagamento
+URLS:
+https://veterinaria.offcurve.com.br/api/v1/pagamento/listar_pagamentos/
+https://veterinaria.offcurve.com.br/api/v1/pagamento/detalhar_pagamento/1/
+https://veterinaria.offcurve.com.br/api/v1/pagamento/add_pagamento/
+https://veterinaria.offcurve.com.br/api/v1/pagamento/alterar_pagamento/1/ 
+https://veterinaria.offcurve.com.br/api/v1/pagamento/deletar_pagamento/1/
+
+payload esperado para a rota de cadastro:
+{
+    "id_atendimento": 1,
+    "id_forma_pagamento": 1,
+    "data_pagamento": "2023-07-19T20:45:53-03:00",
+    "valor_pagamento": "100.00"
+}
