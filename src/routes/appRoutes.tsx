@@ -13,6 +13,13 @@ import ListaClinicas from "../pages/lists/ListaClinicas";
 import ListaAnimais from "../pages/lists/ListaAnimais";
 import ListPageLayout from "../pages/lists/ListPageLayout";
 import ListaTiposAnimais from "../pages/lists/ListaTiposAnimais";
+import CadastroVacina from "../pages/dasboard/CadastroVacina";
+import ListaVacinas from "../pages/lists/ListaVacina";
+import CadastroFormaPagamento from "../pages/dasboard/CadastroFormaPagamento";
+import Page from "../pages/atendimento/Page";
+import Atendimento from "../pages/atendimento/Atendimento";
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+
 
 const appRoutes: RouteType[] = [
     {
@@ -67,6 +74,22 @@ const appRoutes: RouteType[] = [
                 }
             },
             {
+                path: "/dashboard/cadastrovacina",
+                elemnts: <CadastroVacina />,
+                state: "dashboard.cadastrovacina",
+                SidebarProps: {
+                    displaytext: "Vacinas"
+                }
+            },
+            {
+                path: "/dashboard/cadastroformapagaemnto",
+                elemnts: <CadastroFormaPagamento />,
+                state: "dashboard.cadastroformapagamento",
+                SidebarProps: {
+                    displaytext: "Forma de Pagamento"
+                }
+            },
+            {
                 path: "/dashboard/perfil",
                 elemnts: <Perfil />,
                 state: "dashboard.perfil",
@@ -108,11 +131,37 @@ const appRoutes: RouteType[] = [
                 SidebarProps: {
                 displaytext: "Listagem dos Tipos de Animais",
                 }
-            }
+            },
+            {
+                path: "/list/listvacina",
+                elemnts: <ListaVacinas />,
+                state: "lists.listavacina",
+                SidebarProps: {
+                displaytext: "Listagem das vacinas",
+                }
+            },
+            
         ]
-
+    },
+    {
+        path: "/atendimento",
+        elemnts: <Page />,
+        state: "page",
+        SidebarProps: {
+            displaytext: "Atendimento",
+            icon: <WorkOutlineOutlinedIcon />
+        },
+        child: [
+            {
+                path: "/atendimento/atendimentos",
+                elemnts: <Atendimento />,
+                state: "atendimento.atendimentos",
+                SidebarProps: {
+                    displaytext: "Atendimentos"
+                }
+            },
+        ]
     }
-
 
 
 ];

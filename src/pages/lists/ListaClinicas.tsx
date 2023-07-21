@@ -30,7 +30,7 @@ const ListaClinicas = () => {
     return (
         <div className="container">
             <h1>Lista de Clínicas</h1>
-            <button className="btn btn-primary" onClick={() => navigate('/cadastro-clinica')}>
+            <button className="btn btn-primary" onClick={() => navigate('/dashboard/cadastroclinica')}>
                 Cadastrar Clínica
             </button>
             <table className="table mt-3">
