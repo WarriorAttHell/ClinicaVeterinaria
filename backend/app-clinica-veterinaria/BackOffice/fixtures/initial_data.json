@@ -1,0 +1,18 @@
+[
+    {
+        "model": "myapp.myobject",
+        "pk": 1,
+        "fields": {
+            "name": "Objeto 1",
+            "description": "Descrição do objeto 1"
+        }
+    },
+    {
+        "model": "myapp.myobject",
+        "pk": 2,
+        "fields": {
+            "name": "Objeto 2",
+            "description": "Descrição do objeto 2"
+        }
+    }
+]

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ pageinfo.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ pageinfo.title }}</h1>
+    <div class="table-responsive">
+        <table class="table table-light table-striped table-bordered table-hover table-sm">
+            
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th>Status</th>
+                    <th>Usuário</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if perfis %}
+                {% for perfil in perfis %}
+                    <tr>
+                        <td>{{ perfil.nome_perfil }}</td>
+                        <td>{{ perfil.status }}</td>
+                        <td>{{ perfil.id_user }}</td>
+                    </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
